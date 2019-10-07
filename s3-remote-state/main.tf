@@ -8,7 +8,7 @@ locals {
 }
 
 module "s3_remote_state" {
-  source           = "../../terraform/terraform/terraform-modules/s3"
+  source           = "../terraform-modules/s3"
   name             = "${local.bucket_name}"
   encrypted_bucket = true
   kms_arn          = "${module.kms_remote_state.arn}"
@@ -16,7 +16,7 @@ module "s3_remote_state" {
 }
 
 module "kms_remote_state" {
-  source = "../../terraform/terraform/terraform-modules/kms"
+  source = "../terraform-modules/kms"
   name   = "terraform"
   tags   = "${local.tags}"
 }

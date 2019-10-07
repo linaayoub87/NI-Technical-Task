@@ -1,5 +1,5 @@
 module "lb" {
-  source                       = "../terraform/terraform/terraform-modules/loadbalancer"
+  source                       = "./terraform-modules/loadbalancer"
   name                         = "tech-task"
   internal                     = false
   # http_action_type             = "redirect"
