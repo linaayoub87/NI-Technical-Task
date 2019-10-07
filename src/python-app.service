@@ -1,0 +1,11 @@
+[Unit]
+Description=Route53 DNS Update
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /var/flask/main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

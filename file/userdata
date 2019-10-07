@@ -1,0 +1,15 @@
+#!/bin/bash
+sudo yum -y update
+sudo yum -y install python37
+sudo yum -y install python-pip 
+sudo pip3 install flask
+
+cd /var
+sudo mkdir flask
+cd flask
+sudo aws s3 cp s3://flask-code-tech-task/main.py main.py
+sudo aws s3 cp s3://flask-code-tech-task/python-app.service /etc/systemd/system/
+sudo chmod 755 /etc/systemd/system/python-app.service
+sudo systemctl daemon-reload
+sudo systemctl enable python-app.service
+sudo systemctl start python-app.service
